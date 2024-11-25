@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хандивын дэлгэрэнгүй</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar here -->
+
+    <div class="campaign-detail-container">
+        <div class="container py-5">
+            <div class="row">
+                <!-- Campaign Image and Details -->
+                <div class="col-lg-8">
+                    <div class="campaign-image-wrapper">
+                        <img src="/images/dogs/dog1.png" alt="Campaign Image" class="img-fluid rounded">
+                    </div>
+                    
+                    <div class="campaign-info mt-4">
+                        <h1 class="campaign-title">Мөки нохойны бүдүүн гэдэсний хагалгаа</h1>
+                        <p class="campaign-description">
+                            Танай хандив мөки нохойн бүдүүн гэдэсний хагалгааны 50% зардлыг даах болно.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Donation Form -->
+                <div class="col-lg-4">
+                    <div class="donation-form-card">
+                        <div class="progress-status mb-4">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>Цугласан: 500,000₮</span>
+                                <span>Зорилт: 1,000,000₮</span>
+                            </div>
+                        </div>
+
+                        <form class="donation-form">
+                            <h3>Хандивлах мөнгөн дүнг оруулна уу</h3>
+                            
+                            <!-- Preset Amount Buttons -->
+                            <div class="preset-amounts mb-3">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-primary w-100">500₮</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-primary w-100">1000₮</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-primary w-100">5000₮</button>
+                                    </div>
+                                </div>
+                                <div class="row g-2 mt-2">
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-primary w-100">10000₮</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-primary w-100">20000₮</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Custom Amount Input -->
+                            <div class="custom-amount mb-4">
+                                <input type="number" class="form-control form-control-lg" placeholder="Өөр дүн оруулах">
+                                <span class="currency-suffix">.00</span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Хандивлах</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer here -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html> 

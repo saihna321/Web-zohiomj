@@ -1,0 +1,958 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left side - Form */
+.login-form-section {
+    width: 50%;
+    padding: 1.5rem;
+    background: white;
+}
+
+.login-form-wrapper {
+    max-width: 100%;
+}
+
+h1 {
+    color: #2F7169;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0rem;
+    margin-top: 2rem;
+    line-height: 1.2;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    color: #4A5568;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    background: #F3F4F6;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.form-input::placeholder {
+    color: #9CA3AF;
+    letter-spacing: 4px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #2F7169;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #245751;
+}
+
+.login-options {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.login-link {
+    color: #2F7169;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #E5E7EB;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.divider span {
+    background: white;
+    padding: 0 1rem;
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    background: white;
+    color: #333;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 24px;
+}
+
+.social-btn span {
+    flex: 1;
+    text-align: center;
+    padding-left: 24px; /* Offset for the icon */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/* Right side - Image */
+.login-image-section {
+    width: 60%;
+    position: relative;
+}
+
+.image-slider {
+    height: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-image-section {
+        display: none;
+    }
+
+    .login-form-section {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Add these styles to your existing CSS */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.login-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container {
+    width: 1200px;
+    height: 700px;
+    background: white;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Form Side */
+.modal-form {
+    width: 50%;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Title */
+h1 {
+    color: #2F7169;
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.form-input {
+    width: 100%;
+    height: 45px;
+    background: #F5F5F5;
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+.form-input::placeholder {
+    color: #999;
+    letter-spacing: 3px;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    height: 45px;
+    background: #2F7169;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-submit:hover {
+    background: #245751;
+}
+
+/* Login Link */
+.form-footer {
+    text-align: center;
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.form-footer p {
+    color: #666;
+    font-size: 14px;
+}
+
+.login-link {
+    color: #2F7169;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Divider */
+.divider {
+    margin: 12px 0;
+    text-align: center;
+    position: relative;
+    font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #E5E7EB;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* Social Buttons */
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 12px;
+}
+
+.social-btn span {
+    color: #333;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* Image Side */
+.modal-image {
+    width: 50%;
+    position: relative;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hover States */
+.social-btn:hover {
+    background: #f8f8f8;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Slider Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* Add these styles for the slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    width: 300%; /* 3 images */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 33.333%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* Updated social buttons */
+.social-login {
+    margin-top: 20px;
+}
+
+.social-btn {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 10px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-btn:hover {
+    background: #f5f5f5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .modal-container {
+        width: 90%;
+        max-width: 900px;
+    }
+
+    .modal-form {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-container {
+        width: 95%;
+        height: auto;
+        max-height: 90vh;
+    }
+
+    .modal-form {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .modal-image {
+        display: none;
+    }
+}
+
+/* Update the login button style */
+.login-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+
+.login-btn:hover {
+    color: #2F7169;
+}
+
+/* Make sure modal displays properly */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.login-modal.active {
+    display: flex !important; /* Force display when active */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navbar Link Effect */
+.nav-links a, .login-btn {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after, .login-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #2F7169;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .login-btn:hover::after {
+    width: 100%;
+}
+
+/* Modal Popup Effect */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.login-modal.active {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.login-modal.active .modal-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Image Slider with Dissolve Effect */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Slider Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* Custom Scrollbar for Form */
+.modal-form::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-form::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-form::-webkit-scrollbar-thumb {
+    background: #2F7169;
+    border-radius: 3px;
+}
+
+.modal-form::-webkit-scrollbar-thumb:hover {
+    background: #245751;
+}
+
+/* Additional Space Optimizations */
+.form-group:last-of-type {
+    margin-bottom: 32px;
+}
+
+.social-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+.login-link {
+    color: #2F7169;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Ensure content fits */
+.modal-form > * {
+    max-width: 100%;
+}
+
+/* Optimize spacing for social buttons */
+.social-login {
+    margin-bottom: 0.5rem;
+}
+
+/* Modal Animation */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.login-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Modal Container Animation */
+.modal-container {
+    display: flex;
+    width: 1100px;
+    height: 650px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-modal.active .modal-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Form Content Animation */
+.modal-form {
+    width: 45%;
+    padding: 2.5rem 3rem;
+    background: white;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.1s;
+}
+
+.login-modal.active .modal-form {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Image Side Animation */
+.modal-image {
+    width: 55%;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+}
+
+.login-modal.active .modal-image {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Form Elements Animation */
+.form-group, .btn-submit, .form-footer, .divider, .social-login {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-out;
+}
+
+.login-modal.active .form-group {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.login-modal.active .btn-submit {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.login-modal.active .form-footer {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.login-modal.active .divider {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.login-modal.active .social-login {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.7s;
+}
+
+/* Close Button Animation */
+.close-modal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.75rem;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    transform: rotate(-90deg);
+    transition: all 0.3s ease;
+}
+
+.login-modal.active .close-modal {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Hover Effects */
+.btn-submit {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background: #245751;
+    transform: translateY(-1px);
+}
+
+.social-btn {
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-1px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .modal-container {
+        width: 95%;
+        max-width: 1000px;
+        height: 650px;
+    }
+
+    .modal-form {
+        padding: 40px 60px;
+    }
+}
+
+/* Social Buttons Container */
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Individual Social Button */
+.social-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px; /* Fixed height */
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Social Button Icon */
+.social-btn img {
+    position: absolute;
+    left: 16px;
+    width: 24px;
+    height: 24px;
+}
+
+/* Social Button Text */
+.social-btn span {
+    flex: 1;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Hover Effect */
+.social-btn:hover {
+    background: #f5f5f5;
+    border-color: #d1d5db;
+}
+
+/* Adjust form spacing */
+.form-group:last-of-type {
+    margin-bottom: 24px;
+}
+
+.btn-submit {
+    margin-bottom: 16px;
+}
+
+.divider {
+    margin: 16px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .modal-container {
+        width: 90%;
+        max-width: 1200px;
+        height: 750px;
+    }
+
+    .modal-form {
+        padding: 50px 80px;
+    }
+}

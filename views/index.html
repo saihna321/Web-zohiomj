@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Site</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Your existing navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/logo.png" alt="Logo" class="logo">
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#">Хайх</a>
+                    <a href="#" class="donate-btn">Хандив өргөх</a>
+                    <a href="#">Хандив үүсгэх</a>
+                    <a href="#">Холбоо барих</a>
+                    <button id="loginBtn" class="login-btn">Нэвтрэх</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">АМЬ БҮХЭН<br>ҮНЭ <span class="highlight">ЦЭНТЭЙ</span>.</h1>
+            <a href="#" class="more-btn">ИЛҮҮ ИХИЙГ</a>
+        </div>
+    </section>
+
+    <!-- Campaign Cards Section -->
+    <section class="campaigns-section">
+        <div class="container">
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="campaign-card">
+                        <div class="card-zoom">
+                            <img src="/images/dog1.png" alt="Мохи нохой" class="campaign-image">
+                            <div class="hover-overlay">
+                                <button class="donate-now-btn" onclick="window.location.href='/views/campaign-detail.html'">Хандив өргөх</button>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="campaign-title">Мохи нохойны бүдгүй гэдэсний хагалгаа.</h3>
+                                <div class="progress-wrapper">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 45%"></div>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <span class="amount">250.00₮</span>
+                                        <span class="percentage">45%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="campaign-card">
+                        <div class="card-zoom">
+                            <img src="/images/dog2.jpg" alt="Гэмтсэн нохой" class="campaign-image">
+                            <div class="hover-overlay">
+                                <button class="donate-now-btn">Хандив өргөх</button>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="campaign-title">Осолд орсон нохойны эмчилгээний зардал.</h3>
+                                <div class="progress-wrapper">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 75%"></div>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <span class="amount">750.00₮</span>
+                                        <span class="percentage">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="campaign-card">
+                        <div class="card-zoom">
+                            <img src="/images/cat1.png" alt="Өвчтэй муур" class="campaign-image">
+                            <div class="hover-overlay">
+                                <button class="donate-now-btn">Хандив өргөх</button>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="campaign-title">Өвчтэй муурны эмчилгээний зардал.</h3>
+                                <div class="progress-wrapper">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 30%"></div>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <span class="amount">150.00₮</span>
+                                        <span class="percentage">30%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="campaign-card">
+                        <div class="card-zoom">
+                            <img src="/images/dog3.png" alt="Тэжээл хэрэгтэй нохой" class="campaign-image">
+                            <div class="hover-overlay">
+                                <button class="donate-now-btn">Хандив өргөх</button>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="campaign-title">Гудамжны нохдын тэжээлийн зардал.</h3>
+                                <div class="progress-wrapper">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 60%"></div>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <span class="amount">300.00₮</span>
+                                        <span class="percentage">60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="campaign-card">
+                        <div class="card-zoom">
+                            <img src="/images/cat2.png" alt="Хорт хавдартай муур" class="campaign-image">
+                            <div class="hover-overlay">
+                                <button class="donate-now-btn">Хандив өргөх</button>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="campaign-title">Хорт хавдартай муурны мэс засал.</h3>
+                                <div class="progress-wrapper">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <span class="amount">850.00₮</span>
+                                        <span class="percentage">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                    <div class="campaign-card">
+                        <div class="card-zoom">
+                            <img src="/images/dog4.png" alt="Сэргээн засах нохой" class="campaign-image">
+                            <div class="hover-overlay">
+                                <button class="donate-now-btn">Хандив өргөх</button>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="campaign-title">Гэмтсэн нохойны сэргээн засах эмчилгээ.</h3>
+                                <div class="progress-wrapper">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
+                                    <div class="progress-stats">
+                                        <span class="amount">200.00₮</span>
+                                        <span class="percentage">40%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <!-- Left Side - Form -->
+            <div class="modal-form">
+                <button class="close-modal">&times;</button>
+                <h1>Сайн байна уу?</h1>
+                
+                <form>
+                    <div class="form-group">
+                        <label>Нэр</label>
+                        <input type="text" class="form-input" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>И-мэйл</label>
+                        <input type="email" class="form-input" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Нууц үг</label>
+                        <input type="password" class="form-input" placeholder="">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Бүртгүүлэх</button>
+
+                    <div class="form-footer">
+                        <p>Бүртгэл байгаа юу? <a href="#" class="login-link">Нэвтрэх</a></p>
+                    </div>
+
+                    <div class="divider">OR</div>
+
+                    <div class="social-login">
+                        <button class="social-btn">
+                            <img src="/images/google_icon.png" alt="Google">
+                            <span>Sign up with Google</span>
+                        </button>
+                        
+                        <button class="social-btn">
+                            <img src="/images/facebook_icon.png" alt="Facebook">
+                            <span>Sign up with Facebook</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Side - Image Slider -->
+            <div class="modal-image">
+                <div class="slider-container">
+                    <div class="slide active"><img src="/images/login1.png" alt="Slide 1"></div>
+                    <div class="slide"><img src="/images/login2.png" alt="Slide 2"></div>
+                    <div class="slide"><img src="/images/login3.png" alt="Slide 3"></div>
+                </div>
+                <div class="slider-dots"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/login.js"></script>
+
+    <!-- Add this before closing </body> tag -->
+    <script>
+        // Create WebSocket connection
+        const ws = new WebSocket('ws://' + window.location.host);
+        
+        // Listen for messages
+        ws.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            if (data.type === 'refresh') {
+                location.reload();
+            }
+        };
+
+        // Handle connection errors
+        ws.onerror = function(error) {
+            console.log('WebSocket Error:', error);
+        };
+
+        // Reconnect if connection is lost
+        ws.onclose = function() {
+            console.log('WebSocket Connection Closed. Reconnecting...');
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
+        };
+    </script>
+
+</body>
+</html>
+
