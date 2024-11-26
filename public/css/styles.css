@@ -1,19 +1,20 @@
 .navbar {
     background: white;
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
     border-radius: 50px;
-    margin: 1rem 2rem;
+    margin: 1rem auto;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    left: 300px;
-    right: 300px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
-    transition: all 0.3s ease;
-    
+    width: 95%;
+    max-width: 1000px;
 }
 
 .navbar.scrolled {
-    transform: translateY(-10px);
+    transform: translateX(-50%) translateY(-10px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -21,14 +22,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
     width: 100%;
 }
 
 .nav-links {
     display: flex;
-    gap: 5rem;
+    gap: 3rem;
     align-items: center;
-    align-content: space-between;
+    margin: 0 auto;
 }
 
 .nav-links a {
@@ -357,5 +359,19 @@
     
     .campaign-card {
         height: 350px;
+    }
+}
+
+/* Add responsive adjustments */
+@media (max-width: 1200px) {
+    .navbar {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 95%;
+        padding: 0.5rem 1rem;
     }
 }
