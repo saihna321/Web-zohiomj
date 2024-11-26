@@ -45,4 +45,55 @@ if (process.env.NODE_ENV === 'development') {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+});
+
+// Example using Express
+app.post('/api/comments', async (req, res) => {
+    try {
+        // Verify user is authenticated
+        if (!req.user) {
+            return res.status(401).json({ success: false, message: 'Нэвтрэх шаардлагатай.' });
+        }
+
+        const { text, campaignId } = req.body;
+        
+        // Save comment to database
+        const comment = await Comment.create({
+            text,
+            campaignId,
+            userId: req.user.id,
+            createdAt: new Date()
+        });
+
+        // Return the new comment with user info
+        res.json({
+            success: true,
+            comment: {
+                id: comment.id,
+                text: comment.text,
+                userName: req.user.name,
+                userAvatar: req.user.avatar,
+                createdAt: comment.createdAt
+            }
+        });
+    } catch (error) {
+        console.error('Error saving comment:', error);
+        res.status(500).json({ success: false, message: 'Сэтгэгдэл хадгалахад алдаа гарлаа.' });
+    }
+});
+
+app.get('/api/comments', async (req, res) => {
+    try {
+        const { campaignId } = req.query;
+        const comments = await Comment.findAll({
+            where: { campaignId },
+            include: [{ model: User, attributes: ['name', 'avatar'] }],
+            order: [['createdAt', 'DESC']]
+        });
+        
+        res.json(comments);
+    } catch (error) {
+        console.error('Error loading comments:', error);
+        res.status(500).json({ success: false, message: 'Сэтгэгдэл ачаалахад алдаа гарлаа.' });
+    }
 }); 

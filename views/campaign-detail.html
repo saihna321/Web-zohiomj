@@ -5,87 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хандивын дэлгэрэнгүй</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/campaign-detail.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation bar here -->
 
-    <div class="campaign-detail-container">
-        <div class="container py-5">
-            <div class="row">
-                <!-- Campaign Image and Details -->
-                <div class="col-lg-8">
-                    <div class="campaign-image-wrapper">
-                        <img src="/images/dogs/dog1.png" alt="Campaign Image" class="img-fluid rounded">
-                    </div>
-                    
-                    <div class="campaign-info mt-4">
-                        <h1 class="campaign-title">Мөки нохойны бүдүүн гэдэсний хагалгаа</h1>
-                        <p class="campaign-description">
-                            Танай хандив мөки нохойн бүдүүн гэдэсний хагалгааны 50% зардлыг даах болно.
-                        </p>
-                    </div>
-                </div>
+    <div class="back-nav">
+        <div class="container">
+            <a href="/" class="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Буцах
+            </a>
+        </div>
+    </div>
 
-                <!-- Donation Form -->
-                <div class="col-lg-4">
-                    <div class="donation-form-card">
-                        <div class="progress-status mb-4">
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 50%"></div>
+    <div class="campaign-container">
+        <!-- Left side -->
+        <div class="campaign-left">
+            <!-- Image and Title section -->
+            <div class="campaign-header">
+                <div class="campaign-image-wrapper">
+                    <div class="image-overlay"></div>
+                    <img src="/images/dog1.png" alt="Мөки нохой">
+                    <div class="overlay-content">
+                        <h1>Мөки нохойны бүдүүн гэдэсний хагалгаа</h1>
+                        <p>Танай хандив мөки нохойн бүдүүн гэдэсний хагалгааны 50% зардлыг даах болно.</p>
+                        <div class="meta-info">
+                            <div class="meta-item">
+                                <span>Үүсгэсэн: 2024-03-15</span>
                             </div>
-                            <div class="d-flex justify-content-between mt-2">
-                                <span>Цугласан: 500,000₮</span>
-                                <span>Зорилт: 1,000,000₮</span>
+                            <div class="meta-item">
+                                <span>Амьтад</span>
                             </div>
                         </div>
-
-                        <form class="donation-form">
-                            <h3>Хандивлах мөнгөн дүнг оруулна уу</h3>
-                            
-                            <!-- Preset Amount Buttons -->
-                            <div class="preset-amounts mb-3">
-                                <div class="row g-2">
-                                    <div class="col">
-                                        <button type="button" class="btn btn-outline-primary w-100">500₮</button>
-                                    </div>
-                                    <div class="col">
-                                        <button type="button" class="btn btn-outline-primary w-100">1000₮</button>
-                                    </div>
-                                    <div class="col">
-                                        <button type="button" class="btn btn-outline-primary w-100">5000₮</button>
-                                    </div>
-                                </div>
-                                <div class="row g-2 mt-2">
-                                    <div class="col">
-                                        <button type="button" class="btn btn-outline-primary w-100">10000₮</button>
-                                    </div>
-                                    <div class="col">
-                                        <button type="button" class="btn btn-outline-primary w-100">20000₮</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Custom Amount Input -->
-                            <div class="custom-amount mb-4">
-                                <input type="number" class="form-control form-control-lg" placeholder="Өөр дүн оруулах">
-                                <span class="currency-suffix">.00</span>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary btn-lg w-100">Хандивлах</button>
-                        </form>
                     </div>
                 </div>
             </div>
+
+            <!-- Description section -->
+            <div class="campaign-description">
+                <div class="description-content">
+                    <h2>Дэлгэрэнгүй</h2>
+                    <p>Мөки нохой нь 3 настай эр нохой бөгөөд бүдүүн гэдэсний үрэвслтэй байгаа. Хагалгааны зардал нь нийт 2 сая төгрөг бөгөөд эзэн нь 1 сая төгрөгийг гаргах боломжтой байгаа.</p>
+                    
+                    <h3>Хагалгааны зардал:</h3>
+                    <ul>
+                        <li>Мэс заслын өрөө: 500,000₮</li>
+                        <li>Эм тариа: 800,000₮</li>
+                        <li>Эмчийн үзлэг: 700,000₮</li>
+                    </ul>
+                    
+                    <p>Та бүхний тусламж Мөкид маш их хэрэгтэй байна. Бага ч гэсэн хандив өргөснөөр Мөкигийн эдгэрэлтэд тус болох болно.</p>
+                </div>
+            </div>
+
+            <!-- Add this after the campaign description -->
+            <div class="comments-section">
+                <h3>Сэтгэгдэл (15)</h3>
+                
+                <!-- Comment Form -->
+                <div class="comment-form-wrapper">
+                    <form id="commentForm" class="comment-form">
+                        <textarea 
+                            id="commentText" 
+                            class="comment-input" 
+                            rows="3" 
+                            placeholder="Сэтгэгдэл бичих..."
+                            required
+                        ></textarea>
+                        <button type="submit" class="comment-submit-btn">Илгээх</button>
+                    </form>
+                </div>
+
+                <!-- Comments List -->
+                <div id="commentsList" class="comments-list">
+                    <!-- Comments will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side: Donation Card -->
+        <div class="donation-card">
+            <div class="progress-bar">
+                <!-- Add your progress bar here -->
+            </div>
+            
+            <h2>Хандивлах дүн</h2>
+            <div class="amount-grid">
+                <button class="amount-btn" data-amount="500">500₮</button>
+                <button class="amount-btn" data-amount="1000">1,000₮</button>
+                <button class="amount-btn" data-amount="5000">5,000₮</button>
+                <button class="amount-btn" data-amount="10000">10,000₮</button>
+                <button class="amount-btn" data-amount="20000">20,000₮</button>
+            </div>
+            
+            <div class="custom-amount">
+                <input type="text" id="customAmount" placeholder="Өөр дүн оруулах">
+                <span class="currency">.00₮</span>
+            </div>
+
+            <h3>Төлбөрийн хэрэгсэл</h3>
+            <div class="payment-methods">
+                <button class="qpay"><img src="/images/qpay.png" alt="QPay"></button>
+                <button class="socialpay"><img src="/images/socialpay.png" alt="SocialPay"></button>
+            </div>
+
+            <button class="donate-button">Хандивлах</button>
         </div>
     </div>
 
     <!-- Footer here -->
 
     <!-- Bootstrap JS -->
+
+    <script src="/js/comments.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/donation.js"></script>
 </body>
 </html> 
