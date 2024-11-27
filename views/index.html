@@ -197,20 +197,20 @@
                 <button class="close-modal">&times;</button>
                 <h1>Сайн байна уу?</h1>
                 
-                <form>
+                <form id="registrationForm">
                     <div class="form-group">
                         <label>Нэр</label>
-                        <input type="text" class="form-input" placeholder="">
+                        <input type="text" name="name" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label>И-мэйл</label>
-                        <input type="email" class="form-input" placeholder="">
+                        <input type="email" name="email" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label>Нууц үг</label>
-                        <input type="password" class="form-input" placeholder="">
+                        <input type="password" name="password" class="form-input" required>
                     </div>
 
                     <button type="submit" class="btn-submit">Бүртгүүлэх</button>
@@ -273,6 +273,41 @@
                 window.location.reload();
             }, 5000);
         };
+    </script>
+
+    <script>
+    document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            password: e.target.password.value
+        };
+
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+            
+            if (data.success) {
+                alert(data.message); // Success message
+                // Optional: Redirect to login or close modal
+                document.getElementById('loginModal').style.display = 'none';
+            } else {
+                alert(data.message); // Error message
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Бүртгэл үүсгэхэд алдаа гарлаа.');
+        }
+    });
     </script>
 
 </body>
